@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { MessageSquare } from 'lucide-react';
 import WalletConnect from './WalletConnect';
 
 const Header = () => {
@@ -36,6 +37,13 @@ const Header = () => {
             className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-yellow-600 focus:outline-none"
           >
             Blockchain
+          </button>
+          <button
+            onClick={() => navigate('/chat')}
+            className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-yellow-600 focus:outline-none"
+          >
+            <MessageSquare className="w-5 h-5 mr-1" />
+            Chat with AI
           </button>
           <WalletConnect />
         </div>

@@ -21,6 +21,7 @@ import DistributorDashboard from './components/dashboard/DistributorDashboard';
 import RetailerDashboard from './components/dashboard/RetailerDashboard';
 import BlockchainPage from './pages/BlockchainPage';
 import ProductDetails from './components/blockchain/ProductDetails';
+import ChatBot from './components/ChatBot';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -99,7 +100,19 @@ function App() {
             
             <Route path="/admin/signup" element={!user ? <AdminSignup /> : <Navigate to="/" />} />
             <Route path="/not-authorized" element={<NotAuthorized />} />
-            <Route path="/chat" element={<ChatSystem />} />
+            
+            {/* Protected Chat Route */}
+            <Route
+              path="/chat"
+              element={
+                <PrivateRoute>
+                  <div className="min-h-screen bg-gray-50 py-8">
+                    <ChatBot />
+                  </div>
+                </PrivateRoute>
+              }
+            />
+
             <Route
               path="/blockchain"
               element={
